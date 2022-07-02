@@ -166,10 +166,11 @@ let movies = [
         year: '2013-2019'
     }
 ];
-                                                                        
+// created a GET route located at the endpoint “/”                                                                        
 app.get('/', (req, res) => {
 res.send('Welcome to my Movie App!');
 });
+// created a GET route located at the endpoint “/movies” returns jason objects containing the movies
 app.get('/movies', (req, res) => {
 res.json(movies);
 });
