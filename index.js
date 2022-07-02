@@ -173,3 +173,7 @@ res.send('Welcome to my Movie App!');
 app.get('/movies', (req, res) => {
 res.json(movies);
 });
+// app port
+app.listen(8080, () => {
+console.log('The App is listening on Port 8080.');
+});
