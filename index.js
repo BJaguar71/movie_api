@@ -166,3 +166,7 @@ let movies = [
         year: '2013-2019'
     }
 ];
+                                                                        
+app.get('/', (req, res) => {
+res.send('Welcome to my Movie App!');
+});
