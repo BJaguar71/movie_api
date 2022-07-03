@@ -1,7 +1,3 @@
-// imported express 
-const express = require('express');
-const app = express();
-
 // defining the list of movies 
 let movies = [
     {
@@ -166,7 +162,12 @@ let movies = [
         year: '2013-2019'
     }
 ];
-// created a GET route located at the endpoint “/”                                                                        
+//importing express, morgan, fs and path
+const express = require('express'),
+    morgan = require('morgan');
+const app = express();
+
+// GET request to main page
 app.get('/', (req, res) => {
 res.send('Welcome to my Movie App!');
 });
