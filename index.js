@@ -175,7 +175,8 @@ res.send('Welcome to my Movie App!');
 app.use('/movies', (req, res) => {
 res.json(movies);
 });
-// app port
+//static serving the documentation file
+app.use('/documentation', express.static('public'));
 app.listen(8080, () => {
 console.log('The App is listening on Port 8080.');
 });
