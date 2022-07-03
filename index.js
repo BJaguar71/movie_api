@@ -171,8 +171,8 @@ const app = express();
 app.get('/', (req, res) => {
 res.send('Welcome to my Movie App!');
 });
-// created a GET route located at the endpoint “/movies” returns jason objects containing the movies
-app.get('/movies', (req, res) => {
+// GET request to Movies page
+app.use('/movies', (req, res) => {
 res.json(movies);
 });
 // app port
