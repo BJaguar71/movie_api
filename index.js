@@ -184,6 +184,7 @@ app.use((err, req, res, next) => {
 console.log(err.stack);
 res.status(500).send('Something broke!');
 });
+// app port listening
 app.listen(8080, () => {
-console.log('The App is listening on Port 8080.');
+console.log('The App is listening on port 8080.');
 });
