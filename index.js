@@ -177,6 +177,8 @@ res.json(movies);
 });
 //static serving the documentation file
 app.use('/documentation', express.static('public'));
+// logging with morgan
+app.use(morgan('common'));
 app.listen(8080, () => {
 console.log('The App is listening on Port 8080.');
 });
