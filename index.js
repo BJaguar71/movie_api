@@ -179,6 +179,11 @@ res.json(movies);
 app.use('/documentation', express.static('public'));
 // logging with morgan
 app.use(morgan('common'));
+//error handling
+app.use((err, req, res, next) => {
+console.log(err.stack);
+res.status(500).send('Something broke!');
+});
 app.listen(8080, () => {
 console.log('The App is listening on Port 8080.');
 });
