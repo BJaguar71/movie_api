@@ -176,7 +176,8 @@ app.use('/movies', (req, res) => {
 res.json(movies);
 });
 //static serving the documentation file
-app.use('/documentation', express.static('public'));
+app.use(express.static('public'));
+
 // logging with morgan
 app.use(morgan('common'));
 //error handling
