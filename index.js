@@ -168,6 +168,9 @@ const express = require('express'),
     morgan = require('morgan');
 const app = express();
 
+// logging with morgan (middleware)
+app.use(morgan('common'));
+
 // GET request to main page
 app.get('/', (req, res) => {
     res.send('Welcome to my Movie App!');
@@ -180,9 +183,6 @@ app.use('/movies', (req, res) => {
 
 //static serving the documentation file
 app.use(express.static('public'));
-
-// logging with morgan
-app.use(morgan('common'));
 
 //error handling
 app.use((err, req, res, next) => {
