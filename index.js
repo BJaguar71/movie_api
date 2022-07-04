@@ -162,6 +162,7 @@ let movies = [
         year: '2013-2019'
     }
 ];
+
 //importing express, morgan, fs and path
 const express = require('express'),
     morgan = require('morgan');
@@ -169,23 +170,27 @@ const app = express();
 
 // GET request to main page
 app.get('/', (req, res) => {
-res.send('Welcome to my Movie App!');
+    res.send('Welcome to my Movie App!');
 });
+
 // GET request to Movies page
 app.use('/movies', (req, res) => {
-res.json(movies);
+    res.json(movies);
 });
+
 //static serving the documentation file
 app.use(express.static('public'));
 
 // logging with morgan
 app.use(morgan('common'));
+
 //error handling
 app.use((err, req, res, next) => {
-console.log(err.stack);
-res.status(500).send('Something broke!');
+    console.log(err.stack);
+    res.status(500).send('Something broke!');
 });
+
 // app port listening
 app.listen(8080, () => {
-console.log('The App is listening on port 8080.');
+    console.log('The App is listening on port 8080.');
 });
