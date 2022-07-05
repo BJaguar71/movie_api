@@ -4,11 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta movie="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation</title>
+    <title>T-Flix Documentation</title>
 </head>
 <body>
+    <h1>T-Flix Documentation</h1>
+    <hr>
     <p>
-        this file will be completed during the time progress of the app
+        T-Flix is a movie app that includes only films and series in which trans people have either starred as actors/actresses or directors. <br>
+        The objective of this work-in-progress project is to build a server-side component of a “movies” web application. <br>
+        T-Flix will provide users with access to information about different movies such as transgender directors/actors/actresses and also the release year of each movie.
     </p>
+    <h2>URL endpoints and request methods</h2>
+    <table>
+        <thead>
+            <tr>
+                <th class="column">Request</th>
+                <th class="column">Endpoint URL</th>
+                <th class="column">HTTP Method</th>
+                <th class="column">Query parameters</th>
+                <th class="column">Request body data format</th>
+                <th class="column">Response body data format</th>
+            </tr>
+        </thead>
+        <!-- Return all movies -->
+        <tr>
+            <td class="column">Return list of all movies</td>
+            <td class="column">/movies</td>
+            <td class="column">GET</td> 
+            <td class="column">None</td>              
+            <td class="column">None</td>
+            <td class="column">JSON object holding data about all movies, e.g.
+            </td>
+        </tr>
+        <!-- Return info about one movie -->
+        <tr>
+            <td class="column">Return info about one movie by title</td>
+            <td class="column">/movies/[Title]</td>
+            <td class="column">GET</td>
+            <td class="column">:title</td>
+            <td class="column">None</td>
+            <td class="column">JSON object holding data about requested movie, e.g.</td>
+        </tr>
+        <tbody>
 </body>
 </html>
