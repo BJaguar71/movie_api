@@ -202,6 +202,19 @@ app.get('/movies/:year', (req, res) => {
     }));
 });
 
+// Adds new movie to the list
+app.post('/movies', (req, res) => {
+    let newMovie =  req.body;
+
+    if(!newMovie.title) {
+        const message = 'Missing the title in the request body';
+        res.status(400).send(message);
+    } else {
+        newMovie.id = uuid.v4();
+        movies.push(newMovie);
+        res.status(201).send(newMovie);
+    }
+});
 //static serving the documentation file
 app.use(express.static('public'));
 
