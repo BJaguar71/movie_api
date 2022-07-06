@@ -181,6 +181,12 @@ app.use('/movies', (req, res) => {
     res.json(movies);
 });
 
+// Get info about one movie by title
+app.get('/movies/:title', (req, res) => {
+    res.json(movies.find((movie) => {
+        return movie.title === req.params.title
+    }));
+});
 //static serving the documentation file
 app.use(express.static('public'));
 
