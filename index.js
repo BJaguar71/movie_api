@@ -195,6 +195,13 @@ app.get('/movies/:name', (req, res) => {
     }));
 });
 
+// Gets info about one movie by the release year
+app.get('/movies/:year', (req, res) => {
+    res.json(movies.find((movie) => {
+        return movie.year === req.params.year
+    }));
+});
+
 //static serving the documentation file
 app.use(express.static('public'));
 
