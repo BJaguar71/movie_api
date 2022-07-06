@@ -184,21 +184,21 @@ app.use('/movies', (req, res) => {
 // Get info about one movie by title
 app.get('/movies/:title', (req, res) => {
     res.json(movies.find((movie) => {
-        return movie.title === req.params.title
+        return movie.title === req.params.title;
     }));
 });
 
 // Get info about one movie by the name of transgender actors/actresses/director
 app.get('/movies/:name', (req, res) => {
     res.json(movies.find((movie) => {
-        return movie.name === req.params.name
+        return movie.name === req.params.name;
     }));
 });
 
 // Gets info about one movie by the release year
 app.get('/movies/:year', (req, res) => {
     res.json(movies.find((movie) => {
-        return movie.year === req.params.year
+        return movie.year === req.params.year;
     }));
 });
 
