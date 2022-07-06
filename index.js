@@ -183,23 +183,20 @@ app.use('/movies', (req, res) => {
 
 // Get info about one movie by title
 app.get('/movies/:title', (req, res) => {
-    res.json(movies.find((movie) => {
-        return movie.title === req.params.title;
-    }));
+    res.json(movies.find((movie) => 
+        {return movie.title === req.params.title}));
 });
 
 // Get info about one movie by the name of transgender actors/actresses/director
 app.get('/movies/:name', (req, res) => {
-    res.json(movies.find((movie) => {
-        return movie.name === req.params.name;
-    }));
+    res.json(movies.find((movie) => 
+        {return movie.name === req.params.name}));
 });
 
 // Gets info about one movie by the release year
 app.get('/movies/:year', (req, res) => {
-    res.json(movies.find((movie) => {
-        return movie.year === req.params.year;
-    }));
+    res.json(movies.find((movie) => 
+        {return movie.year === req.params.year}));
 });
 
 // Adds new movie to the list
@@ -218,9 +215,8 @@ app.post('/movies', (req, res) => {
 
 //Deletes a movie by title
 app.delete('/movies/:title', (req, res) => {
-    let movie =  movies.find((movie) => {
-        return movie.title === req.params.title
-    });
+    let movie =  movies.find((movie) => 
+        {return movie.title === req.params.title});
 
     if (movie) {
         movies = movies.filter((obj) => {
