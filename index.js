@@ -215,6 +215,19 @@ app.post('/movies', (req, res) => {
         res.status(201).send(newMovie);
     }
 });
+
+//Deletes a movie by title
+app.delete('/movies/:title', (req, res) => {
+    let movie =  movies.find((movie) => {
+        return movie.title === req.params.title
+    });
+
+    if (movie) {
+        movies = movies.filter((obj) => {
+            return obj.title !== req.params.title});
+            res.status(201).send('Movie ' + req.params.title + ' was deleted.');
+    }
+});
 //static serving the documentation file
 app.use(express.static('public'));
 
