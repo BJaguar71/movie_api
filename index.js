@@ -187,6 +187,14 @@ app.get('/movies/:title', (req, res) => {
         return movie.title === req.params.title
     }));
 });
+
+// Get info about one movie by the name of transgender actors/actresses/director
+app.get('/movies/:name', (req, res) => {
+    res.json(movies.find((movie) => {
+        return movie.name === req.params.name
+    }));
+});
+
 //static serving the documentation file
 app.use(express.static('public'));
 
