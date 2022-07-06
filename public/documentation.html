@@ -33,17 +33,92 @@
             <td class="column">GET</td> 
             <td class="column">None</td>              
             <td class="column">None</td>
-            <td class="column">JSON object holding data about all movies, e.g.
+            <td class="column">JSON object holding data about all movies.
             </td>
         </tr>
-        <!-- Return info about one movie -->
+        <!-- Return info about one movie by title -->
         <tr>
             <td class="column">Return info about one movie by title</td>
             <td class="column">/movies/[Title]</td>
             <td class="column">GET</td>
             <td class="column">:title</td>
             <td class="column">None</td>
-            <td class="column">JSON object holding data about requested movie, e.g.</td>
+            <td class="column">JSON object holding data about requested movie, e.g.
+                {<br>
+                    "id": "28",<br>
+                    "title": "Uncle Stephanie",<br>
+                    "name": "Laverne Cox",<br>
+                    "year": "2009"<br>
+                }
+            </td>
+        </tr>
+        <tbody>
+        <!-- Return info about one movie by the name of transgender actors/actresses/director -->
+        <tr>
+            <td class="column">Return info about one movie by the name of transgender actors/actresses/director</td>
+            <td class="column">/movies/[Name]</td>
+            <td class="column">GET</td>
+            <td class="column">:name</td>
+            <td class="column">None</td>
+            <td class="column">JSON object holding data about requested movie, e.g.<br>
+                {<br>
+                    "id": "30",<br>
+                    "title": "Orange Is the New Black (Series)",<br>
+                    "name": "Laverne Cox",<br>
+                    "year": "2013-2019"<br>
+                }    
+            </td>
+        </tr>
+        <tbody>
+        <!-- Return info about one movie by the release year -->
+        <tr>
+            <td class="column">Return info about one movie by the release year</td>
+            <td class="column">/movies/[Year]</td>
+            <td class="column">GET</td>
+            <td class="column">:year</td>
+            <td class="column">None</td>
+            <td class="column">JSON object holding data about requested movie, e.g.<br>
+                {<br>
+                    "id": "5",<br>
+                    "title": "Bound",<br>
+                    "name": "the Wachowskis",<br>
+                    "year": "1996"<br>
+                }
+            </td>
+        </tr>
+        <tbody>
+        <!-- Add new movie  -->
+        <tr>
+            <td class="column">Adds new movie to the list</td>
+            <td class="column">/movies</td>
+            <td class="column">POST</td>
+            <td class="column">None</td>
+            <td class="column">	JSON object holding data about the new movie, e.g.
+                {<br>
+                    "title": "The Umbrella Academy (Series)",<br>
+                    "name": "Elliot Page",<br>
+                    "year": "2019-present"<br>
+                }
+            </td>
+            <td class="column">JSON object holding data about the added movie including an ID, e.g.<br>
+                {<br>
+                    "id": "12",<br> 
+                    "title": "The Umbrella Academy (Series)",<br>
+                    "name": "Elliot Page",<br>
+                    "year": "2019-present"<br>
+                }
+            </td>
+        </tr>
+        <tbody>
+        <!-- Delete a movie by title  -->
+        <tr>
+            <td class="column">Deletes a movie by title</td>
+            <td class="column">/movies/[Title]</td>
+            <td class="column">DELETE</td>
+            <td class="column">:title</td>
+            <td class="column">	None
+            </td>
+            <td class="column">A text message indicating whether the student was successfully removed</td>
         </tr>
         <tbody>
 </body>
