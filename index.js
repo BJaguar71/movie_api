@@ -176,7 +176,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to my Movie App!');
 });
 
-// GET request to Movies page
+// GET request to Movies page, returns list of all movies in JSON 
 app.use('/movies', (req, res) => {
     res.json(movies);
 });
