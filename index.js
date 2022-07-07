@@ -17,7 +17,7 @@ let movies = [
     },
     {
         title: 'The Matrix Resurrections',
-        name: 'Lena  Wachowski',
+        name: 'Lena Wachowski',
         year: 2021
     },
     {
@@ -67,7 +67,7 @@ let movies = [
     },
     {
         title: 'Can You Keep a Secret?',
-        name: 'Lav,erne Cox',
+        name: 'Laverne Cox',
         year: 2019
     },
     {
@@ -82,7 +82,7 @@ let movies = [
     },
     {
         title: 'Promising Young Woman',
-        name:'Laverne Cox',
+        name: 'Laverne Cox',
         year: 2020
     },
     {
@@ -167,7 +167,7 @@ app.get('/movies/:title', (req, res) => {
     }));
 });
 
-// Get info about one movie by the name of transgender actors/actresses/director
+// Get info about one movie by the name of director
 app.get('/movies/:name', (req, res) => {
     res.json(movies.find((movie) => 
         {return movie.name === req.params.name}));
