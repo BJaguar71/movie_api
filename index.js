@@ -46,27 +46,6 @@ let movies = [
         year: 2015
     },
     {
-        title: 'Pose (Series)',
-        name: [
-            'Michaela Jaé Rodriguez',
-            'Indya Moore',
-            'Dominique Jackson',
-            'Hailie Sahar',
-            'Angelica Ross'
-        ],
-        year: '2018-2021'
-    },
-    {
-        title: 'Paris Is Burning (Documentary)',
-        name: [
-            'Dorian Cory',
-            'Venus Xtravaganza',
-            'Octavia St. Laurent',
-            'Angie Xtravaganza'
-        ],
-        year: 1990
-    },
-    {
         title: 'The Umbrella Academy (Series)',
         name: 'Elliot Page',
         year: '2019-present'
