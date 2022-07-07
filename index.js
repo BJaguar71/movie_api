@@ -162,14 +162,9 @@ app.get('/movies', (req, res) => {
 
 // Get info about one movie by title
 app.get('/movies/:title', (req, res) => {
-    movies.findOne({title: req.params.title})
-        .then((movie) => {
-        res.json(movie);
-        }
-    ).catch((err) => {
-        console.log(error);
-        res.status(500).send('Error: ' + err)
-    });
+    res.json(movies.find((movie) => {
+        return movie.name === req.params.name
+    }));
 });
 
 // Get info about one movie by the name of transgender actors/actresses/director
