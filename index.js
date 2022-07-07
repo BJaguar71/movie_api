@@ -156,7 +156,7 @@ app.get('/', (req, res) => {
 });
 
 // GET request to Movies page, returns list of all movies in JSON 
-app.use('/movies', (req, res) => {
+app.get('/movies', (req, res) => {
     res.json(movies);
 });
 
