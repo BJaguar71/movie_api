@@ -236,6 +236,8 @@ app.get('/', (req, res) => {
 
 // GET request to Movies page, returns list of all movies in JSON 
 app.get('/movies', (req, res) => {
+    res.status(200).json(movies);
+})
 
 // Get info about one movie by title
 app.get('/movies/:title', (req, res) => {
