@@ -241,10 +241,8 @@ app.get('/movies', (req, res) => {
 
 // Get info about one movie by title
 app.get('/movies/:title', (req, res) => {
-    res.json(movies.find((movie) => {
-        return movie.name === req.params.name
-    }));
-});
+    const { title } = req.params;
+    const movie = movies.find( movie => movie.title === title);
 
 // Get info about one movie by the name of director
 app.get('/movies/:name', (req, res) => {
