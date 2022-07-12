@@ -307,6 +307,18 @@ app.put('/users/:id', (req, res) => {
     }
 })
 
+// Adds new movie to the user's favoriteMovies list
+app.post('/users/:id/:movieTitle', (req, res) => {
+    const { id, movieTitle } = req.params;
+
+    let user = users.find(user => user.id == id);
+
+    if (user) {
+        user.favoriteMovies.push(movieTitle);
+        res.status(200).send(`${movieTitle} has been added to user ${id}'s array.`);
+    } else {
+        res.status(400).send('user not found!')
+    }
 });
 
 // Adds new movie to the list
