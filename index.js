@@ -342,11 +342,21 @@ app.delete('/users/:id/:movieTitle', (req, res) => {
 app.delete('/movies/:title', (req, res) => {
     let movie =  movies.find((movie) => 
         {return movie.title === req.params.title});
+// Delete a user from the users's array
+app.delete('/users/:id', (req, res) => {
+    const { id } = req.params;
 
     if (movie) {
         movies = movies.filter((obj) => {
             return obj.title !== req.params.title});
             res.status(201).send('Movie ' + req.params.title + ' was deleted.');
+    let user = users.find(user => user.id == id);
+
+    if (user) {
+        users = users.filter(user => user.id != id);
+        res.status(200).send(`User ${id} has been removed.`);
+    } else {
+        res.status(400).send('user not found!')
     }
 });
 //static serving the documentation file
