@@ -359,6 +359,7 @@ app.delete('/users/:id', (req, res) => {
         res.status(400).send('user not found!')
     }
 });
+
 //static serving the documentation file
 app.use(express.static('public'));
 
