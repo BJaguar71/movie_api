@@ -229,14 +229,6 @@ let users = [
     }
 ];
 
-//importing express, morgan, fs and path
-const express = require('express'),
-    morgan = require('morgan');
-const app = express();
-
-// logging with morgan (middleware)
-app.use(morgan('common'));
-
 // GET request to main page
 app.get('/', (req, res) => {
     res.send('Welcome to my Movie App!');
