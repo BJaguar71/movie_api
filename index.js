@@ -292,6 +292,21 @@ app.post('/users', (req, res) => {
     }
 })
 
+// Update user 
+app.put('/users/:id', (req, res) => {
+    const { id } = req.params;
+    const updatedUser = req.body; 
+
+    let user = users.find(user => user.id == id);
+
+    if (user) {
+        user.name = updatedUser.name;
+        res.status(200).json(user);
+    } else {
+        res.status(400).send('user not found!')
+    }
+})
+
 });
 
 // Adds new movie to the list
