@@ -279,6 +279,19 @@ app.get('/movies/directors/:directorName', (req, res) => {
 app.get('/movies/:year', (req, res) => {
     res.json(movies.find((movie) => 
         {return movie.year === req.params.year}));
+// Add new user
+app.post('/users', (req, res) => {
+    const newUser = req.body; 
+
+    if (newUser.name) {
+        newUser.id = uuid.v4();
+        users.push(newUser);
+        res.status(201).json(newUser)
+    } else { 
+        res.status(400).send('name is missing'); 
+    }
+})
+
 });
 
 // Adds new movie to the list
