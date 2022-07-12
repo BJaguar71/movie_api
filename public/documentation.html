@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta movie="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T-Flix Documentation</title>
 </head>
 <body>
@@ -25,7 +25,6 @@
                 <th class="column">Request body data format</th>
                 <th class="column">Response body data format</th>
             </tr>
-            <hr>
         </thead>
         <!-- Return all movies -->
         <tbody>
@@ -111,8 +110,7 @@
                 <td class="column">/movies/[Title]</td>
                 <td class="column">DELETE</td>
                 <td class="column">:title</td>
-                <td class="column">	None
-                </td>
+                <td class="column">	None</td>
                 <td class="column">A text message indicating whether the student was successfully removed</td>
             </tr>
             <!-- Return data about a genre by name  -->
@@ -146,9 +144,10 @@
             <!--Add new user -->
             <tr>
                 <td class="column">Add a new user</td>
-                <td>/users</td>
-                <td>POST</td>
-                <td>A JSON object holding
+                <td class="column">/users</td>
+                <td class="column">POST</td>
+                <td class="column">None</td>
+                <td class="column">A JSON object holding
                   data about the user to
                   add, structured like:<br>
                   {<br>
@@ -159,7 +158,7 @@
                   "favoriteMovies":[]<br>
                   }
                 </td>
-                <td>A JSON object holding data
+                <td class="column">A JSON object holding data
                   about the user that was
                   added, including an ID:Example<br>
                   {<br>
@@ -175,18 +174,18 @@
             <!--Udates a username-->
             <tr>
                 <td class="column">Udates a username</td>
-                <td>/users/[Name]</td>
-                <td>PUT</td>
-                <td>A JSON object holding data to update. Example<br>
+                <td class="column">/users/[Name]</td>
+                <td class="column">PUT</td>
+                <td class="column">None</td>
+                <td class="column">A JSON object holding data to update. Example<br>
                     {<br>
                     "name":"nikko"<br>
                     "password" : "#Hh9_23%",<br>
                     "email" : "nikko23@gmail.com"<br>
                     "Birthdate": "1999-02-22"<br>
                     }<br>
-                  </td>
                 </td>
-                <td>A JSON object holding the updated user Example:<br>
+                <td class="column">A JSON object holding the updated user Example:<br>
                     {<br>
                     "id": "2",<br>
                     "name":"nikko"<br>
@@ -198,19 +197,21 @@
             </tr>
             <!-- Adds a movie to the FavoriteMovies list of a user -->
             <tr>
-                <td>Adds a movie to the FavoriteMovies list, create by each user</td>
-                <td>[users]/[name]/[movies]/[MovieID]</td>
-                <td>POST</td>
-                <td>None</td>
-                <td></td>
+                <td class="column">Adds a movie to the FavoriteMovies list, create by each user</td>
+                <td class="column">[Users]/[Name]/[Movies]/[MovieID]</td>
+                <td class="column">POST</td>
+                <td class="column">None</td>
+                <td class="column">None</td>
+                <td class="column">-</td>
             </tr>
             <!--Removes a movie from list of FavouriteMovies-->
             <tr>
-                <td>Removes a movie from list of FavouriteMovies</td>
-                <td>/users/[name]/[movies]/[movieID]</td>
-                <td>DELETE</td>
-                <td>None</td>
-                <td>A JSON object holding updated user<br>
+                <td class="column">Removes a movie from list of FavouriteMovies</td>
+                <td class="column">/users/[Name]/[Movies]/[MovieID]</td>
+                <td class="column">DELETE</td>
+                <td class="column">None</td>
+                <td class="column">None</td>
+                <td class="column">A JSON object holding updated user<br>
                 {<br>
                 "_id": "6294b3ac94326ea059c642c5",<br>
                 "name": "erhan",<br>
@@ -223,11 +224,12 @@
             </tr>
             <!--De-registering a user -->
             <tr>
-                <td>De-registering a user</td>
-                <td>/users/id</td>
-                <td>DELETE</td>
-                <td>None</td>
-                <td>A text message indicating
+                <td class="column">De-registering a user</td>
+                <td class="column">/users/:id</td>
+                <td class="column">DELETE</td>
+                <td class="column">:id</td>
+                <td class="column">None</td>
+                <td class="column">A text message indicating
                 user has been successfully removed</td>
             </tr>
         </tbody>
