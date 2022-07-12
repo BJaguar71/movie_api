@@ -12,7 +12,7 @@
     <p>
         T-Flix is a movie app that includes only films and series in which trans people have either starred as actors/actresses or directors. <br>
         The objective of this work-in-progress project is to build a server-side component of a “movies” web application. <br>
-        T-Flix will provide users with access to information about different movies such as transgender directors/actors/actresses and also the release year of each movie as well as the genre.
+        T-Flix will provide users with access to information about different movies such as transgender directors/actors/actresses and also the release year of each movie as well as the genre and
     </p>
     <h2>URL endpoints and request methods</h2>
     <table>
@@ -46,99 +46,110 @@
                 <td class="column">None</td>
                 <td class="column">JSON object holding data about requested movie, e.g.
                     {<br>
-                        "title": "Uncle Stephanie",<br>
-                        "name": "Laverne Cox",<br>
-                        "year": "2009"<br>
+                        "title": "The Matrix",<br>
+                        "directors": {<br>
+                            "name": "The Wachowskis",<br>
+                            "bio": "Lana (1965) and Lilly (1967) Wachowski also known as the Wachowskis are American film and television directors, writers and producers. The sisters are both trans women.",<br>
+                            "image": "https://www.indiewire.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.23.06-AM.png"<br>
+                        },<br>
+                        "summary": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",<br>
+                        "genre": {<br>
+                            "name": "Sci-Fi",<br>
+                            "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."<br>
+                        },<br>
+                        "image": "https://www.imdb.com/title/tt0133093/mediaviewer/rm525547776/?ref_=ext_shr_lnk",<br>
+                        "year": 1999<br>
                     }
                 </td>
             </tr>
-            <!-- Return info about one movie by the name of the director -->
+            <!-- Return info about director by name -->
             <tr>
-                <td class="column">Return info about one movie by the director's name</td>
-                <td class="column">/movies/[Name]</td>
-                <td class="column">GET</td>
-                <td class="column">:name</td>
-                <td class="column">None</td>
-                <td class="column">JSON object holding data about requested movie, e.g.<br>
-                    {<br>
-                        "title": "The Matrix Revolutions",<br>
-                        "name": "the Wachowskis",<br>
-                        "year": 2003<br>
-                    }    
-                </td>
-            </tr>
-            <!-- Return info about one movie by the release year -->
-            <tr>
-                <td class="column">Return info about one movie by the release year</td>
-                <td class="column">/movies/[Year]</td>
-                <td class="column">GET</td>
-                <td class="column">:year</td>
-                <td class="column">None</td>
-                <td class="column">JSON object holding data about requested movie, e.g.<br>
-                    {<br>
-                        "title": "Bound",<br>
-                        "name": "the Wachowskis",<br>
-                        "year": 1996<br>
-                    }
-                </td>
-            </tr>
-            <!-- Add new movie  -->
-            <tr>
-                <td class="column">Adds new movie to the list</td>
-                <td class="column">/movies</td>
-                <td class="column">POST</td>
-                <td class="column">None</td>
-                <td class="column">	JSON object holding data about the new movie, e.g.
-                    {<br>
-                        "title": "The Umbrella Academy (Series)",<br>
-                        "name": "Elliot Page",<br>
-                        "year": "2019-present"<br>
-                    }
-                </td>
-                <td class="column">JSON object holding data about the added movie including an ID, e.g.<br>
-                    {<br>
-                        "id": "xxxxxxxx",<br> 
-                        "title": "The Umbrella Academy (Series)",<br>
-                        "name": "Elliot Page",<br>
-                        "year": "2019-present"<br>
-                    }
-                </td>
-            </tr>
-            <!-- Delete a movie by title  -->
-            <tr>
-                <td class="column">Deletes a movie by title</td>
-                <td class="column">/movies/[Title]</td>
-                <td class="column">DELETE</td>
-                <td class="column">:title</td>
-                <td class="column">	None</td>
-                <td class="column">A text message indicating whether the student was successfully removed</td>
-            </tr>
-            <!-- Return data about a genre by name  -->
-            <tr>
-                <td class="column">Returns info about a genre (description) by name (e.g. Sci-Fi)</td>
-                <td class="column">/movies/[Genre]/[GenreName]</td>
-                <td class="column">GET</td>
-                <td class="column">None</td>
-                <td class="column">None</td>
-                <td class="column">A JSON object holding the data about the genre, Example:{<br>
-                    "Name": "Drama",<br>
-                    "Description": "The film portrays the man's unique way of dealing with his new, torturous life."<br>
-                    }<br>
-                </td>
-            </tr>
-            <!-- Returns data about a director (bio, birthdate, deathdate, ...) by name  -->
-            <tr>
-                <td class="column">Returns data about a director (e.g. bio, birthyear, deathyear, ...) by name</td>
+                <td class="column">Return info about a director by director's name</td>
                 <td class="column">/movies/[Directors]/[DirectorName]</td>
                 <td class="column">GET</td>
+                <td class="column">:directorName</td>
                 <td class="column">None</td>
+                <td class="column">JSON object holding data about requested movie, e.g.<br>
+                    {<br>
+                        "directors": {<br>
+                            "name": "The Wachowskis",<br>
+                            "bio": "Lana (1965) and Lilly (1967) Wachowski also known as the Wachowskis are American film and television directors, writers and producers. The sisters are both trans women.",<br>
+                            "image": "https://www.indiewire.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.23.06-AM.png"<br>
+                        }<br>
+                </td>
+            </tr>
+            <!-- Return info about one genre by genre name -->
+            <tr>
+                <td class="column">Return info about a genre by the genre name</td>
+                <td class="column">/movies/[Genre]/[GenreName]</td>
+                <td class="column">GET</td>
+                <td class="column">:genreName</td>
                 <td class="column">None</td>
-                <td class="column">A JSON object holding data about a director, Example:{<br>
-                    "name": "Lana Wachowski",<br>
-                    "bio": "Lana Wachowski and her sister Lilly Wachowski, also known as the Wachowskis, are the duo behind such ground-breaking movies as The Matrix (1999) and Cloud Atlas (2012)...",<br>
-                    "birthdate": "1965"<br>
-                    "deathyear": "alive"
-                    }<br>
+                <td class="column">JSON object holding data about requested movie, e.g.<br>
+                    "genre": {<br>
+                        "name": "Sci-Fi",<br>
+                        "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."<br>
+                    },<br>
+                </td>
+            </tr>
+            <!-- Add new user  -->
+            <tr>
+                <td class="column">Adds new user to user array</td>
+                <td class="column">/users/[Id]</td>
+                <td class="column">POST</td>
+                <td class="column">:id</td>
+                <td class="column">	JSON object holding data about the new user, e.g. {<br>
+                    "name": "mehregan",<br>
+                    "favoriteMovies": []<br>
+                }  
+                </td>
+                <td class="column">Returns JSON object holding data about the added user including an ID, e.g.<br>
+                    {<br>
+                        "name": "mehregan",<br>
+                        "favoriteMovies": [],<br>
+                        "id": "477bf97b-73ec-4824-8a93-d8844e4b4fd8"<br>
+                    }
+                </td>
+            </tr>
+            <!-- Update User's name  -->
+            <tr>
+                <td class="column">Updates User's name</td>
+                <td class="column">/users/[Id]</td>
+                <td class="column">PUT</td>
+                <td class="column">:id</td>
+                <td class="column">A JSON object containing the id of the user and the new name. e.g. {<br>
+                    "name": "nikson",<br>
+                    "favoriteMovies": []<br>
+                } 
+                </td>
+                <td class="column">Returns JSON object of the updated user, e.g. {<br>
+                    "id": 1,<br>
+                    "name": "nikson",<br>
+                    "email": "mrym.hanifi@gmail.com",<br>
+                    "password": "@1092Picab",<br>
+                    "birth": 1992,<br>
+                    "favoriteMovies": []<br>
+                }
+                </td>
+            </tr>
+            <!-- Adds new movie to the user's favoriteMovies list  -->
+            <tr>
+                <td class="column">Adds new movie to the user's favoriteMovies list</td>
+                <td class="column">/users/[Id]/[MovieTitle]</td>
+                <td class="column">POST</td>
+                <td class="column">:id/:movieTitle</td>
+                <td class="column">None</td>
+                <td class="column">	A text message indicating the movie title was successfully added to the user's favoriteMovies'array.
+                </td>
+            </tr>
+            <!-- Deletes a movie from the user's favoriteMovies list-->
+            <tr>
+                <td class="column">Deletes a movie from the user's favoriteMovies list</td>
+                <td class="column">/users/[Id]/[MovieTitle]</td>
+                <td class="column">DELETE</td>
+                <td class="column">:id/:movieTitle</td>
+                <td class="column">None</td>
+                <td class="column">	A text message indicating the movie title was successfully removed from the user's favoriteMovies'array.
                 </td>
             </tr>
             <!--Add new user -->
@@ -149,77 +160,19 @@
                 <td class="column">None</td>
                 <td class="column">A JSON object holding
                   data about the user to
-                  add, structured like:<br>
-                  {<br>
-                  "name" : "Lili",<br>
-                  "password" : "@23Hj0",<br>
-                  "email" : "lili098@gmail.com"<br>
-                  "Birthdate": "1998-04-13"<br>
-                  "favoriteMovies":[]<br>
-                  }
+                  add:{<br>
+                    "name": "mehregan",<br>
+                    "favoriteMovies": []<br>
+                }
                 </td>
                 <td class="column">A JSON object holding data
                   about the user that was
                   added, including an ID:Example<br>
                   {<br>
-                  "id":3,<br>
-                  "name" : "Lili",<br>
-                  "password" : "@23Hj0",<br>
-                  "email" : "lili098@gmail.com"<br>
-                  "Birthdate": "1998-04-13"<br>
-                  "favoriteMovies":[]<br>
-                  }<br>
-                </td>
-            </tr>
-            <!--Udates a username-->
-            <tr>
-                <td class="column">Udates a username</td>
-                <td class="column">/users/[Name]</td>
-                <td class="column">PUT</td>
-                <td class="column">None</td>
-                <td class="column">A JSON object holding data to update. Example<br>
-                    {<br>
-                    "name":"nikko"<br>
-                    "password" : "#Hh9_23%",<br>
-                    "email" : "nikko23@gmail.com"<br>
-                    "Birthdate": "1999-02-22"<br>
-                    }<br>
-                </td>
-                <td class="column">A JSON object holding the updated user Example:<br>
-                    {<br>
-                    "id": "2",<br>
-                    "name":"nikko"<br>
-                    "password" : "#Hh9_23%",<br>
-                    "email" : "nikko23@gmail.com"<br>
-                    "Birthdate": "1999-02-22"<br>
-                    }<br>
-                </td>
-            </tr>
-            <!-- Adds a movie to the FavoriteMovies list of a user -->
-            <tr>
-                <td class="column">Adds a movie to the FavoriteMovies list, create by each user</td>
-                <td class="column">[Users]/[Name]/[Movies]/[MovieID]</td>
-                <td class="column">POST</td>
-                <td class="column">None</td>
-                <td class="column">None</td>
-                <td class="column">-</td>
-            </tr>
-            <!--Removes a movie from list of FavouriteMovies-->
-            <tr>
-                <td class="column">Removes a movie from list of FavouriteMovies</td>
-                <td class="column">/users/[Name]/[Movies]/[MovieID]</td>
-                <td class="column">DELETE</td>
-                <td class="column">None</td>
-                <td class="column">None</td>
-                <td class="column">A JSON object holding updated user<br>
-                {<br>
-                "_id": "6294b3ac94326ea059c642c5",<br>
-                "name": "erhan",<br>
-                "password": 8889023,<br>
-                "email": "erhan8823@yahoo.com",<br>
-                "Birthdate": "1995-05-02",<br>
-                "favoriteMovies": []<br>
-                }<br>
+                    "name": "mehregan",<br>
+                    "favoriteMovies": [],<br>
+                    "id": "92756ff5-9007-4257-b3eb-71bc8c99e30f"<br>
+                }
                 </td>
             </tr>
             <!--De-registering a user -->
