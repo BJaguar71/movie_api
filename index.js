@@ -324,14 +324,17 @@ app.post('/users/:id/:movieTitle', (req, res) => {
 // Adds new movie to the list
 app.post('/movies', (req, res) => {
     let newMovie =  req.body;
+// Delete a movie from the user's favoriteMovies list
+app.delete('/users/:id/:movieTitle', (req, res) => {
+    const { id, movieTitle } = req.params;
 
-    if(!newMovie.title) {
-        const message = 'Missing the title in the request body';
-        res.status(400).send(message);
+    let user = users.find(user => user.id == id);
+
+    if (user) {
+        user.favoriteMovies = user.favoriteMovies.filter(title => title !== movieTitle);
+        res.status(200).send(`${movieTitle} has been deleted from user ${id}'s array.`);
     } else {
-        newMovie.id = uuid.v4();
-        movies.push(newMovie);
-        res.status(201).send(newMovie);
+        res.status(400).send('user not found!')
     }
 });
 
