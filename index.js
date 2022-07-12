@@ -244,11 +244,25 @@ app.get('/movies/:title', (req, res) => {
     const { title } = req.params;
     const movie = movies.find( movie => movie.title === title);
 
-// Get info about one movie by the name of director
-app.get('/movies/:name', (req, res) => {
-    res.json(movies.find((movie) => 
-        {return movie.name === req.params.name}));
-});
+    if (movie) {
+        res.status(200).json(movie);
+    } else {
+        res.status(400).send('Movie not found!');
+    }
+})
+
+// Get info about a genre by the name of the genre
+// Gets info about one movie by the director name
+app.get('/movies/directors/:directorName', (req, res) => {
+    const { directorName } = req.params;
+    const director = movies.find( movie => movie.directors.name === directorName).directors;
+
+    if (director) {
+        res.status(200).json(director);
+    } else {
+        res.status(400).send('director not found!');
+    }
+})
 
 // Gets info about one movie by the release year
 app.get('/movies/:year', (req, res) => {
