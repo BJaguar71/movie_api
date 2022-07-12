@@ -1,3 +1,15 @@
+const bodyParser = require('body-parser');
+//importing express, morgan, fs and path
+const express = require('express'),
+    morgan = require('morgan');
+const uuid = require('uuid');
+const app = express();
+
+// logging with morgan (middleware)
+app.use(morgan('common'));
+
+app.use(bodyParser.json());
+
 // defining the list of movies 
 let movies = [
     {
