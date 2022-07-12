@@ -194,20 +194,38 @@ let movies = [
     }
 ];
 
+//list of users
+let users = [
     {
-        title: 'Uncle Stephanie',
-        name: 'Laverne Cox',
-        year: 2009
+        "id": 1,
+        "name": "mrym.hanifi",
+        "email": "mrym.hanifi@gmail.com",
+        "password": "@1092Picab",
+        "birth": 1992,
+        "favoriteMovies": [
+            "The Matrix",
+            "Cloud Atlas"
+        ]
     },
     {
-        title: 'The King of Brooklyn',
-        name: 'Laverne Cox',
-        year: 2004
+        "id": 2,
+        "name": "paniz.hekmat",
+        "email": "paniz.hekmat68@gmail.com",
+        "password": "234#BHm0",
+        "birth": 1978,
+        "favoriteMovies": [
+            "Cloud Atlas",
+            "Paris is burning",
+            "Bound"
+        ]
     },
     {
-        title: 'Orange Is the New Black (Series)',
-        name: 'Laverne Cox',
-        year: '2013-2019'
+        "id": 3,
+        "name": "alia_nikko",
+        "email": "alia_nikko53@mail.de",
+        "password": "sghl03nh%",
+        "birth": 2000,
+        "favoriteMovies": []
     }
 ];
 
