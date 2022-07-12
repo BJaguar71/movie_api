@@ -232,12 +232,10 @@ let users = [
 // GET request to main page
 app.get('/', (req, res) => {
     res.send('Welcome to my Movie App!');
-});
+})
 
 // GET request to Movies page, returns list of all movies in JSON 
 app.get('/movies', (req, res) => {
-    res.json(movies);
-});
 
 // Get info about one movie by title
 app.get('/movies/:title', (req, res) => {
@@ -275,10 +273,6 @@ app.get('/movies/directors/:directorName', (req, res) => {
     }
 })
 
-// Gets info about one movie by the release year
-app.get('/movies/:year', (req, res) => {
-    res.json(movies.find((movie) => 
-        {return movie.year === req.params.year}));
 // Add new user
 app.post('/users', (req, res) => {
     const newUser = req.body; 
@@ -321,9 +315,6 @@ app.post('/users/:id/:movieTitle', (req, res) => {
     }
 });
 
-// Adds new movie to the list
-app.post('/movies', (req, res) => {
-    let newMovie =  req.body;
 // Delete a movie from the user's favoriteMovies list
 app.delete('/users/:id/:movieTitle', (req, res) => {
     const { id, movieTitle } = req.params;
@@ -338,18 +329,10 @@ app.delete('/users/:id/:movieTitle', (req, res) => {
     }
 });
 
-//Deletes a movie by title
-app.delete('/movies/:title', (req, res) => {
-    let movie =  movies.find((movie) => 
-        {return movie.title === req.params.title});
 // Delete a user from the users's array
 app.delete('/users/:id', (req, res) => {
     const { id } = req.params;
 
-    if (movie) {
-        movies = movies.filter((obj) => {
-            return obj.title !== req.params.title});
-            res.status(201).send('Movie ' + req.params.title + ' was deleted.');
     let user = users.find(user => user.id == id);
 
     if (user) {
