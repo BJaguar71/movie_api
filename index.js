@@ -370,5 +370,5 @@ app.use((err, req, res, next) => {
 
 // app port listening
 app.listen(8080, () => {
-    console.log('The App is listening on port 8080.');
+    console.log('listening on 8080.');
 });
