@@ -25,98 +25,212 @@
                 <th class="column">Request body data format</th>
                 <th class="column">Response body data format</th>
             </tr>
+            <hr>
         </thead>
         <!-- Return all movies -->
-        <tr>
-            <td class="column">Return list of all movies</td>
-            <td class="column">/movies</td>
-            <td class="column">GET</td> 
-            <td class="column">None</td>              
-            <td class="column">None</td>
-            <td class="column">JSON objects holding data about all movies.
-            </td>
-        </tr>
-        <!-- Return info about one movie by title -->
-        <tr>
-            <td class="column">Return info about one movie by title</td>
-            <td class="column">/movies/[Title]</td>
-            <td class="column">GET</td>
-            <td class="column">:title</td>
-            <td class="column">None</td>
-            <td class="column">JSON object holding data about requested movie, e.g.
-                {<br>
-                    "title": "Uncle Stephanie",<br>
-                    "name": "Laverne Cox",<br>
-                    "year": "2009"<br>
-                }
-            </td>
-        </tr>
         <tbody>
-        <!-- Return info about one movie by the name of the director -->
-        <tr>
-            <td class="column">Return info about one movie by the director's name</td>
-            <td class="column">/movies/[Name]</td>
-            <td class="column">GET</td>
-            <td class="column">:name</td>
-            <td class="column">None</td>
-            <td class="column">JSON object holding data about requested movie, e.g.<br>
+            <tr>
+                <td class="column">Return list of all movies</td>
+                <td class="column">/movies</td>
+                <td class="column">GET</td> 
+                <td class="column">None</td>              
+                <td class="column">None</td>
+                <td class="column">JSON objects holding data about all movies.
+                </td>
+            </tr>
+            <!-- Return info about one movie by title -->
+            <tr>
+                <td class="column">Return info about one movie by title</td>
+                <td class="column">/movies/[Title]</td>
+                <td class="column">GET</td>
+                <td class="column">:title</td>
+                <td class="column">None</td>
+                <td class="column">JSON object holding data about requested movie, e.g.
+                    {<br>
+                        "title": "Uncle Stephanie",<br>
+                        "name": "Laverne Cox",<br>
+                        "year": "2009"<br>
+                    }
+                </td>
+            </tr>
+            <!-- Return info about one movie by the name of the director -->
+            <tr>
+                <td class="column">Return info about one movie by the director's name</td>
+                <td class="column">/movies/[Name]</td>
+                <td class="column">GET</td>
+                <td class="column">:name</td>
+                <td class="column">None</td>
+                <td class="column">JSON object holding data about requested movie, e.g.<br>
+                    {<br>
+                        "title": "The Matrix Revolutions",<br>
+                        "name": "the Wachowskis",<br>
+                        "year": 2003<br>
+                    }    
+                </td>
+            </tr>
+            <!-- Return info about one movie by the release year -->
+            <tr>
+                <td class="column">Return info about one movie by the release year</td>
+                <td class="column">/movies/[Year]</td>
+                <td class="column">GET</td>
+                <td class="column">:year</td>
+                <td class="column">None</td>
+                <td class="column">JSON object holding data about requested movie, e.g.<br>
+                    {<br>
+                        "title": "Bound",<br>
+                        "name": "the Wachowskis",<br>
+                        "year": 1996<br>
+                    }
+                </td>
+            </tr>
+            <!-- Add new movie  -->
+            <tr>
+                <td class="column">Adds new movie to the list</td>
+                <td class="column">/movies</td>
+                <td class="column">POST</td>
+                <td class="column">None</td>
+                <td class="column">	JSON object holding data about the new movie, e.g.
+                    {<br>
+                        "title": "The Umbrella Academy (Series)",<br>
+                        "name": "Elliot Page",<br>
+                        "year": "2019-present"<br>
+                    }
+                </td>
+                <td class="column">JSON object holding data about the added movie including an ID, e.g.<br>
+                    {<br>
+                        "id": "xxxxxxxx",<br> 
+                        "title": "The Umbrella Academy (Series)",<br>
+                        "name": "Elliot Page",<br>
+                        "year": "2019-present"<br>
+                    }
+                </td>
+            </tr>
+            <!-- Delete a movie by title  -->
+            <tr>
+                <td class="column">Deletes a movie by title</td>
+                <td class="column">/movies/[Title]</td>
+                <td class="column">DELETE</td>
+                <td class="column">:title</td>
+                <td class="column">	None
+                </td>
+                <td class="column">A text message indicating whether the student was successfully removed</td>
+            </tr>
+            <!-- Return data about a genre by name  -->
+            <tr>
+                <td class="column">Returns info about a genre (description) by name (e.g. Sci-Fi)</td>
+                <td class="column">/movies/[Genre]/[GenreName]</td>
+                <td class="column">GET</td>
+                <td class="column">None</td>
+                <td class="column">None</td>
+                <td class="column">A JSON object holding the data about the genre, Example:{<br>
+                    "Name": "Drama",<br>
+                    "Description": "The film portrays the man's unique way of dealing with his new, torturous life."<br>
+                    }<br>
+                </td>
+            </tr>
+            <!-- Returns data about a director (bio, birthdate, deathdate, ...) by name  -->
+            <tr>
+                <td class="column">Returns data about a director (e.g. bio, birthyear, deathyear, ...) by name</td>
+                <td class="column">/movies/[Directors]/[DirectorName]</td>
+                <td class="column">GET</td>
+                <td class="column">None</td>
+                <td class="column">None</td>
+                <td class="column">A JSON object holding data about a director, Example:{<br>
+                    "name": "Lana Wachowski",<br>
+                    "bio": "Lana Wachowski and her sister Lilly Wachowski, also known as the Wachowskis, are the duo behind such ground-breaking movies as The Matrix (1999) and Cloud Atlas (2012)...",<br>
+                    "birthdate": "1965"<br>
+                    "deathyear": "alive"
+                    }<br>
+                </td>
+            </tr>
+            <!--Add new user -->
+            <tr>
+                <td class="column">Add a new user</td>
+                <td>/users</td>
+                <td>POST</td>
+                <td>A JSON object holding
+                  data about the user to
+                  add, structured like:<br>
+                  {<br>
+                  "name" : "Lili",<br>
+                  "password" : "@23Hj0",<br>
+                  "email" : "lili098@gmail.com"<br>
+                  "Birthdate": "1998-04-13"<br>
+                  "favoriteMovies":[]<br>
+                  }
+                </td>
+                <td>A JSON object holding data
+                  about the user that was
+                  added, including an ID:Example<br>
+                  {<br>
+                  "id":3,<br>
+                  "name" : "Lili",<br>
+                  "password" : "@23Hj0",<br>
+                  "email" : "lili098@gmail.com"<br>
+                  "Birthdate": "1998-04-13"<br>
+                  "favoriteMovies":[]<br>
+                  }<br>
+                </td>
+            </tr>
+            <!--Udates a username-->
+            <tr>
+                <td class="column">Udates a username</td>
+                <td>/users/[Name]</td>
+                <td>PUT</td>
+                <td>A JSON object holding data to update. Example<br>
+                    {<br>
+                    "name":"nikko"<br>
+                    "password" : "#Hh9_23%",<br>
+                    "email" : "nikko23@gmail.com"<br>
+                    "Birthdate": "1999-02-22"<br>
+                    }<br>
+                  </td>
+                </td>
+                <td>A JSON object holding the updated user Example:<br>
+                    {<br>
+                    "id": "2",<br>
+                    "name":"nikko"<br>
+                    "password" : "#Hh9_23%",<br>
+                    "email" : "nikko23@gmail.com"<br>
+                    "Birthdate": "1999-02-22"<br>
+                    }<br>
+                </td>
+            </tr>
+            <!-- Adds a movie to the FavoriteMovies list of a user -->
+            <tr>
+                <td>Adds a movie to the FavoriteMovies list, create by each user</td>
+                <td>[users]/[name]/[movies]/[MovieID]</td>
+                <td>POST</td>
+                <td>None</td>
+                <td></td>
+            </tr>
+            <!--Removes a movie from list of FavouriteMovies-->
+            <tr>
+                <td>Removes a movie from list of FavouriteMovies</td>
+                <td>/users/[name]/[movies]/[movieID]</td>
+                <td>DELETE</td>
+                <td>None</td>
+                <td>A JSON object holding updated user<br>
                 {<br>
-                    "title": "The Matrix Revolutions",<br>
-                    "name": "the Wachowskis",<br>
-                    "year": 2003<br>
-                }    
-            </td>
-        </tr>
-        <tbody>
-        <!-- Return info about one movie by the release year -->
-        <tr>
-            <td class="column">Return info about one movie by the release year</td>
-            <td class="column">/movies/[Year]</td>
-            <td class="column">GET</td>
-            <td class="column">:year</td>
-            <td class="column">None</td>
-            <td class="column">JSON object holding data about requested movie, e.g.<br>
-                {<br>
-                    "title": "Bound",<br>
-                    "name": "the Wachowskis",<br>
-                    "year": 1996<br>
-                }
-            </td>
-        </tr>
-        <tbody>
-        <!-- Add new movie  -->
-        <tr>
-            <td class="column">Adds new movie to the list</td>
-            <td class="column">/movies</td>
-            <td class="column">POST</td>
-            <td class="column">None</td>
-            <td class="column">	JSON object holding data about the new movie, e.g.
-                {<br>
-                    "title": "The Umbrella Academy (Series)",<br>
-                    "name": "Elliot Page",<br>
-                    "year": "2019-present"<br>
-                }
-            </td>
-            <td class="column">JSON object holding data about the added movie including an ID, e.g.<br>
-                {<br>
-                    "id": "xxxxxxxx",<br> 
-                    "title": "The Umbrella Academy (Series)",<br>
-                    "name": "Elliot Page",<br>
-                    "year": "2019-present"<br>
-                }
-            </td>
-        </tr>
-        <tbody>
-        <!-- Delete a movie by title  -->
-        <tr>
-            <td class="column">Deletes a movie by title</td>
-            <td class="column">/movies/[Title]</td>
-            <td class="column">DELETE</td>
-            <td class="column">:title</td>
-            <td class="column">	None
-            </td>
-            <td class="column">A text message indicating whether the student was successfully removed</td>
-        </tr>
-        <tbody>
+                "_id": "6294b3ac94326ea059c642c5",<br>
+                "name": "erhan",<br>
+                "password": 8889023,<br>
+                "email": "erhan8823@yahoo.com",<br>
+                "Birthdate": "1995-05-02",<br>
+                "favoriteMovies": []<br>
+                }<br>
+                </td>
+            </tr>
+            <!--De-registering a user -->
+            <tr>
+                <td>De-registering a user</td>
+                <td>/users/id</td>
+                <td>DELETE</td>
+                <td>None</td>
+                <td>A text message indicating
+                user has been successfully removed</td>
+            </tr>
+        </tbody>
+    </table>    
 </body>
 </html>
