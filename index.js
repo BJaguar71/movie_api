@@ -263,8 +263,8 @@ app.get('/genre/:genreName', (req, res) => {
     }
 })
 
-// Gets info about one movie by the director name
-app.get('/movies/directors/:directorName', (req, res) => {
+// Gets info about a director by director's name
+app.get('/directors/:directorName', (req, res) => {
     const { directorName } = req.params;
     const director = movies.find( movie => movie.directors.name === directorName).directors;
 
