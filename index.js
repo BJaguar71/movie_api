@@ -25,7 +25,8 @@ let movies = [
             "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."
         },
         "image": "https://www.imdb.com/title/tt0133093/mediaviewer/rm525547776/?ref_=ext_shr_lnk",
-        "year": 1999
+        "year": 1999,
+        "featured" : true
     },
     {
         "title": "The Matrix Reloaded",
@@ -40,7 +41,8 @@ let movies = [
             "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."
         },
         "image": "https://www.imdb.com/title/tt0234215/mediaviewer/rm2235971328/?ref_=ext_shr_lnk",
-        "year": 2003
+        "year": 2003,
+        "featured" : false
     },
     {
         "title": "The Matrix Revolutions",
@@ -55,7 +57,8 @@ let movies = [
             "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."
         },
         "image": "https://www.imdb.com/title/tt0242653/mediaviewer/rm1810127616/?ref_=ext_shr_lnk",
-        "year": 2003
+        "year": 2003,
+        "featured" : false
     },
     {
         "title": "The Matrix Resurrections",
@@ -70,7 +73,8 @@ let movies = [
             "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."
         },
         "image": "https://www.imdb.com/title/tt10838180/mediaviewer/rm3704744193/?ref_=ext_shr_lnk",
-        "year": 2021
+        "year": 2021,
+        "featured" : false
     },
     {
         "title": "Bound",
@@ -85,7 +89,8 @@ let movies = [
             "description": "Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
         },
         "image": "https://www.imdb.com/title/tt0115736/mediaviewer/rm3563591680/?ref_=ext_shr_lnk",
-        "year": 1996
+        "year": 1996, 
+        "featured" : false
     },
     {
         "title": "Speed Racer",
@@ -100,7 +105,8 @@ let movies = [
             "description": "Implies a narrative that is defined by a journey (often including some form of pursuit) and is usually located within a fantasy or exoticized setting. Typically, though not always, such stories include the quest narrative. The predominant emphasis on violence and fighting in action films is the typical difference between the two genres."
         },
         "image": "https://www.imdb.com/title/tt0811080/mediaviewer/rm810431232/?ref_=ext_shr_lnk",
-        "year": 2008
+        "year": 2008,
+        "featured" : false
     },
     {
         "title": "Sense8 (Series)",
@@ -115,7 +121,8 @@ let movies = [
             "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."
         },
         "image": "https://www.imdb.com/title/tt2431438/mediaviewer/rm983118848/?ref_=ext_shr_lnk",
-        "year": 2015
+        "year": 2015,
+        "featured" : false
     },
     {
         "title": "Cloud Atlas",
@@ -130,7 +137,8 @@ let movies = [
             "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."
         },
         "image": "https://www.imdb.com/title/tt1371111/mediaviewer/rm910339584/?ref_=ext_shr_lnk",
-        "year": 2012
+        "year": 2012,
+        "featured" : false
     },
     {
         "title": "Paris Is Burning",
@@ -145,7 +153,8 @@ let movies = [
             "description": "A non-fictional motion-picture intended to document reality, primarily for the purposes of instruction, education or maintaining a historical record."
         },
         "image": "https://www.imdb.com/title/tt0100332/mediaviewer/rm2944047105/?ref_=ext_shr_lnk",
-        "year": 1990
+        "year": 1990,
+        "featured" : true
     },
     {
         "title": "There's Something in the Water",
@@ -160,7 +169,8 @@ let movies = [
             "description": "A non-fictional motion-picture intended to document reality, primarily for the purposes of instruction, education or maintaining a historical record."
         },
         "image": "https://www.imdb.com/title/tt10864040/mediaviewer/rm459127553/?ref_=ext_shr_lnk",
-        "year": 2019
+        "year": 2019,
+        "featured" : true
     },
     {
         "title": "Boy I Am",
@@ -175,7 +185,8 @@ let movies = [
             "description": "A non-fictional motion-picture intended to document reality, primarily for the purposes of instruction, education or maintaining a historical record."
         },
         "image": "https://www.imdb.com/title/tt1024954/mediaviewer/rm1789984768/?ref_=ext_shr_lnk",
-        "year": 2006
+        "year": 2006,
+        "featured" : true
     },
     {
         "title": "Kate Bornstein is a Queer & Pleasant Danger",
@@ -190,7 +201,8 @@ let movies = [
             "description": "A non-fictional motion-picture intended to document reality, primarily for the purposes of instruction, education or maintaining a historical record."
         },
         "image": "https://images.squarespace-cdn.com/content/v1/5ecd45bd12463d63375d85e1/1591325108398-LTQA6662GHP9S3LLU4K7/KateBornsteinDVD_Cover.png",
-        "year": 2014
+        "year": 2014,
+        "featured" : true
     }
 ];
 
