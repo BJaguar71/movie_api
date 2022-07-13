@@ -252,7 +252,7 @@ app.get('/movies/:title', (req, res) => {
 })
 
 // Get info about a genre by the name of the genre
-app.get('/movies/genre/:genreName', (req, res) => {
+app.get('/genre/:genreName', (req, res) => {
     const { genreName } = req.params;
     const genre = movies.find( movie => movie.genre.name === genreName).genre;
 
