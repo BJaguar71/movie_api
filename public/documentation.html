@@ -10,9 +10,9 @@
     <h1>T-Flix Documentation</h1>
     <hr>
     <p>
-        T-Flix is a movie app that includes only films and series in which trans people have either starred as actors/actresses or directors. <br>
+        T-Flix is a movie app that includes only films and series as well as documentaries in which trans people have either starred as actors/actresses or directors. <br>
         The objective of this work-in-progress project is to build a server-side component of a “movies” web application. <br>
-        T-Flix will provide users with access to information about different movies such as transgender directors/actors/actresses and also the release year of each movie as well as the genre and
+        T-Flix will provide users with access to information about different movies such as transgender directors/actors/actresses and also the release year of each movie as well as the genre and movie summaries.
     </p>
     <h2>URL endpoints and request methods</h2>
     <table>
@@ -65,7 +65,7 @@
             <!-- Return info about director by name -->
             <tr>
                 <td class="column">Return info about a director by director's name</td>
-                <td class="column">/movies/[Directors]/[DirectorName]</td>
+                <td class="column">/directors/[DirectorName]</td>
                 <td class="column">GET</td>
                 <td class="column">:directorName</td>
                 <td class="column">None</td>
@@ -81,7 +81,7 @@
             <!-- Return info about one genre by genre name -->
             <tr>
                 <td class="column">Return info about a genre by the genre name</td>
-                <td class="column">/movies/[Genre]/[GenreName]</td>
+                <td class="column">/genre/[GenreName]</td>
                 <td class="column">GET</td>
                 <td class="column">:genreName</td>
                 <td class="column">None</td>
@@ -115,7 +115,7 @@
             <tr>
                 <td class="column">Updates User's name</td>
                 <td class="column">/users/[Id]</td>
-                <td class="column">PUT</td>
+                <td class="column">PATCH</td>
                 <td class="column">:id</td>
                 <td class="column">A JSON object containing the id of the user and the new name. e.g. {<br>
                     "name": "nikson",<br>
