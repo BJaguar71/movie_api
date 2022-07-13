@@ -289,7 +289,7 @@ app.post('/users', (req, res) => {
 })
 
 // Update user 
-app.put('/users/:id', (req, res) => {
+app.patch('/users/:id', (req, res) => {
     const { id } = req.params;
     const updatedUser = req.body; 
 
