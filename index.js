@@ -237,7 +237,10 @@ let users = [
         "Email": "alia_nikko53@mail.de",
         "Password": "sghl03nh%",
         "Birth": 2000,
-        "FavoriteMovies": []
+        "FavoriteMovies": [
+            "the Matrix",
+            "Paris is burning"
+        ]
     }
 ];
 
