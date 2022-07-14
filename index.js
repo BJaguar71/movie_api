@@ -251,7 +251,7 @@ app.get('/movies', (req, res) => {
 // Get info about one movie by title
 app.get('/movies/:title', (req, res) => {
     const { title } = req.params;
-    const movie = movies.find( movie => movie.title === title);
+    const movie = movies.find( movie => movie.Title === title);
 
     if (movie) {
         res.status(200).json(movie);
@@ -263,7 +263,7 @@ app.get('/movies/:title', (req, res) => {
 // Get info about a genre by the name of the genre
 app.get('/genre/:genreName', (req, res) => {
     const { genreName } = req.params;
-    const genre = movies.find( movie => movie.genre.name === genreName).genre;
+    const genre = movies.find( movie => movie.Genre.Name === genreName).Genre;
 
     if (genre) {
         res.status(200).json(genre);
@@ -273,9 +273,9 @@ app.get('/genre/:genreName', (req, res) => {
 })
 
 // Gets info about a director by director's name
-app.get('/directors/:directorName', (req, res) => {
+app.get('/director/:directorName', (req, res) => {
     const { directorName } = req.params;
-    const director = movies.find( movie => movie.directors.name === directorName).directors;
+    const director = movies.find( movie => movie.Director.Name === directorName).Director;
 
     if (director) {
         res.status(200).json(director);
@@ -333,7 +333,7 @@ app.delete('/users/:id/:movieTitle', (req, res) => {
     let user = users.find(user => user.id == id);
 
     if (user) {
-        user.favoriteMovies = user.favoriteMovies.filter(title => title !== movieTitle);
+        user.FavoriteMovies = user.FavoriteMovies.filter(title => title !== movieTitle);
         res.status(200).send(`${movieTitle} has been deleted from user ${id}'s array.`);
     } else {
         res.status(400).send('user not found!')
