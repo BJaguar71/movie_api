@@ -305,7 +305,7 @@ app.patch('/users/:id', (req, res) => {
     const { id } = req.params;
     const updatedUser = req.body; 
 
-    let user = users.find(user => user.id == id);
+    let user = users.find(user => user.Id == id);
 
     if (user) {
         user.name = updatedUser.name;
@@ -319,7 +319,7 @@ app.patch('/users/:id', (req, res) => {
 app.post('/users/:id/:movieTitle', (req, res) => {
     const { id, movieTitle } = req.params;
 
-    let user = users.find(user => user.id == id);
+    let user = users.find(user => user.Id == id);
 
     if (user) {
         user.favoriteMovies.push(movieTitle);
@@ -333,7 +333,7 @@ app.post('/users/:id/:movieTitle', (req, res) => {
 app.delete('/users/:id/:movieTitle', (req, res) => {
     const { id, movieTitle } = req.params;
 
-    let user = users.find(user => user.id == id);
+    let user = users.find(user => user.Id == id);
 
     if (user) {
         user.FavoriteMovies = user.FavoriteMovies.filter(title => title !== movieTitle);
@@ -347,10 +347,10 @@ app.delete('/users/:id/:movieTitle', (req, res) => {
 app.delete('/users/:id', (req, res) => {
     const { id } = req.params;
 
-    let user = users.find(user => user.id == id);
+    let user = users.find(user => user.Id == id);
 
     if (user) {
-        users = users.filter(user => user.id != id);
+        users = users.filter(user => user.Id != id);
         res.status(200).send(`User ${id} has been removed.`);
     } else {
         res.status(400).send('user not found!')
