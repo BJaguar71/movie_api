@@ -45,37 +45,38 @@
                 <td class="column">:title</td>
                 <td class="column">None</td>
                 <td class="column">JSON object holding data about requested movie, e.g.
-                    {<br>
-                        "title": "The Matrix",<br>
-                        "directors": {<br>
-                            "name": "The Wachowskis",<br>
-                            "bio": "Lana (1965) and Lilly (1967) Wachowski also known as the Wachowskis are American film and television directors, writers and producers. The sisters are both trans women.",<br>
-                            "image": "https://www.indiewire.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.23.06-AM.png"<br>
-                        },<br>
-                        "summary": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",<br>
-                        "genre": {<br>
-                            "name": "Sci-Fi",<br>
-                            "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."<br>
-                        },<br>
-                        "image": "https://www.imdb.com/title/tt0133093/mediaviewer/rm525547776/?ref_=ext_shr_lnk",<br>
-                        "year": 1999<br>
-                    }
+                {<br>
+                    "_id" : ObjectId("62cfe14d6b9bba89fe85f980"),<br>
+                    "Title" : "Bound",<br>
+                    "Director" : {<br>
+                        "Name" : "The Wachowskis",<br>
+                        "Bio" : "Lana (1965) and Lilly (1967) Wachowski also known as the Wachowskis are American film and television directors, writers and producers. The sisters are both trans women. They have also made video games of their famous trilogy Matrix.",<br>
+                        "Image" : "https://www.indiewire.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.23.06-AM.png"<br>
+                    },<br>
+                    "Summary" : "Tough ex-con Corky and her lover Violet concoct a scheme to steal millions of stashed mob money and pin the blame on Violet's crooked boyfriend Caesar.",<br>
+                    "Genre" : {<br>
+                        "Name" : "Thriller",<br>
+                        "Description" : "Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."<br>
+                    },<br>
+                    "Image" : "https://www.imdb.com/title/tt0115736/mediaviewer/rm3563591680/?ref_=ext_shr_lnk",<br>
+                    "Year" : 1996,<br>
+                    Featured" : false<br>
+                }
                 </td>
             </tr>
             <!-- Return info about director by name -->
             <tr>
                 <td class="column">Return info about a director by director's name</td>
-                <td class="column">/directors/[DirectorName]</td>
+                <td class="column">/director/[DirectorName]</td>
                 <td class="column">GET</td>
                 <td class="column">:directorName</td>
                 <td class="column">None</td>
                 <td class="column">JSON object holding data about requested movie, e.g.<br>
                     {<br>
-                        "directors": {<br>
-                            "name": "The Wachowskis",<br>
-                            "bio": "Lana (1965) and Lilly (1967) Wachowski also known as the Wachowskis are American film and television directors, writers and producers. The sisters are both trans women.",<br>
-                            "image": "https://www.indiewire.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-25-at-10.23.06-AM.png"<br>
-                        }<br>
+                        "Name": "Sam Feder",<br>
+                        "Bio": "Sam Feder is a Peabody Award nominated film director. Cited by Indiewire as one of the exciting trans filmmakers shaking up Hollywood, Sam's films explore the intersection of visibility and politics along the lines of race, class, and gender. Sam's filmmaking practice models inclusion and equity in the industry.",<br>
+                        "Image": "https://www.imdb.com/name/nm2146703/mediaviewer/rm3954187777?ref_=ext_shr_lnk"<br>
+                    }
                 </td>
             </tr>
             <!-- Return info about one genre by genre name -->
@@ -86,7 +87,7 @@
                 <td class="column">:genreName</td>
                 <td class="column">None</td>
                 <td class="column">JSON object holding data about requested movie, e.g.<br>
-                    "genre": {<br>
+                    {<br>
                         "name": "Sci-Fi",<br>
                         "description": "Films are defined by a combination of imaginative speculation and a scientific or technological premise, making use of the changes and trajectory of technology and science. This genre often incorporates space, biology, energy, time, and any other observable science."<br>
                     },<br>
