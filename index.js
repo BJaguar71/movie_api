@@ -209,35 +209,32 @@ let movies = [
 //list of users
 let users = [
     {
-        "Id": 1,
-        "Name": "mrym.hanifi",
-        "Email": "mrym.hanifi@gmail.com",
-        "Password": "@1092Picab",
-        "Birth": 1992,
-        "FavoriteMovies": [
-            "The Matrix",
-            "Cloud Atlas"
-        ]
+        "id": 1,
+        "name": "mrym.hanifi",
+        "email": "mrym.hanifi@gmail.com",
+        "password": "@1092Picab",
+        "birth": 1992,
+        "favoriteMovies": []
     },
     {
-        "Id": 2,
-        "Name": "paniz.hekmat",
-        "Email": "paniz.hekmat68@gmail.com",
-        "Password": "234#BHm0",
-        "Birth": 1978,
-        "FavoriteMovies": [
+        "id": 2,
+        "name": "paniz.hekmat",
+        "email": "paniz.hekmat68@gmail.com",
+        "password": "234#BHm0",
+        "birth": 1978,
+        "favoriteMovies": [
             "Cloud Atlas",
             "Paris is burning",
             "Bound"
         ]
     },
     {
-        "Id": 3,
-        "Name": "alia_nikko",
-        "Email": "alia_nikko53@mail.de",
-        "Password": "sghl03nh%",
-        "Birth": 2000,
-        "FavoriteMovies": [
+        "id": 3,
+        "name": "alia_nikko",
+        "email": "alia_nikko53@mail.de",
+        "password": "sghl03nh%",
+        "birth": 2000,
+        "favoriteMovies": [
             "the Matrix",
             "Paris is burning"
         ]
@@ -308,7 +305,7 @@ app.patch('/users/:id', (req, res) => {
     const { id } = req.params;
     const updatedUser = req.body; 
 
-    let user = users.find(user => user.Id == id);
+    let user = users.find(user => user.id == id);
 
     if (user) {
         user.name = updatedUser.name;
@@ -322,7 +319,7 @@ app.patch('/users/:id', (req, res) => {
 app.post('/users/:id/:movieTitle', (req, res) => {
     const { id, movieTitle } = req.params;
 
-    let user = users.find(user => user.Id == id);
+    let user = users.find(user => user.id == id);
 
     if (user) {
         user.favoriteMovies.push(movieTitle);
@@ -336,10 +333,10 @@ app.post('/users/:id/:movieTitle', (req, res) => {
 app.delete('/users/:id/:movieTitle', (req, res) => {
     const { id, movieTitle } = req.params;
 
-    let user = users.find(user => user.Id == id);
+    let user = users.find(user => user.id == id);
 
     if (user) {
-        user.FavoriteMovies = user.FavoriteMovies.filter(title => title !== movieTitle);
+        user.favoriteMovies = user.favoriteMovies.filter(title => title !== movieTitle);
         res.status(200).send(`${movieTitle} has been deleted from user ${id}'s array.`);
     } else {
         res.status(400).send('user not found!')
@@ -350,10 +347,10 @@ app.delete('/users/:id/:movieTitle', (req, res) => {
 app.delete('/users/:id', (req, res) => {
     const { id } = req.params;
 
-    let user = users.find(user => user.Id == id);
+    let user = users.find(user => user.id == id);
 
     if (user) {
-        users = users.filter(user => user.Id != id);
+        users = users.filter(user => user.id != id);
         res.status(200).send(`User ${id} has been removed.`);
     } else {
         res.status(400).send('user not found!')
