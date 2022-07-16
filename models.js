@@ -27,6 +27,12 @@ let userSchema = mongoose.Schema({
     FavoriteMovies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }]
 });
 
+// defining schema for genre subdoc
+let genreSchema = mongoose.Schema({
+    Name: {type: String, required: true},
+    Description: {type: String, required: true}
+});
+
 // creating models
 let Movie = mongoose.model('Movie', movieSchema);
 let User = mongoose.model('User', userSchema);
