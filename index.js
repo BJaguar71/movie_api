@@ -101,8 +101,17 @@ app.post('/users', (req, res) => {
     });
 });
 
-    const { id } = req.params;
-    const updatedUser = req.body; 
+// GET all users
+app.get('/users', (req, res) => {
+    Users.find()
+    .then((users) => {
+        res.status(201).json(users);
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+    });
+});
 
     let user = users.find(user => user.id == id);
 
