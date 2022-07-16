@@ -33,6 +33,12 @@ let genreSchema = mongoose.Schema({
     Description: {type: String, required: true}
 });
 
+// defining schema for director subdoc
+let directorSchema = mongoose.Schema({
+    Name: {type: String, required: true},
+    Bio: {type: String, required: true}
+});
+
 // creating models
 let Movie = mongoose.model('Movie', movieSchema);
 let User = mongoose.model('User', userSchema);
