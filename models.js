@@ -30,7 +30,10 @@ let userSchema = mongoose.Schema({
 // creating models
 let Movie = mongoose.model('Movie', movieSchema);
 let User = mongoose.model('User', userSchema);
+let Genre = mongoose.model('Genre', genreSchema);
+let Director = mongoose.model('Director', directorSchema);
 
 // exporting the created models
 module.exports.Movie = Movie;
-module.exports.User = User;
+module.exports.Genre = Genre;
+module.exports.Directoe = Director;
