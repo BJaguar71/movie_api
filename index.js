@@ -1,5 +1,6 @@
 // importing mongoose an reated models
 const mongoose = require('mongoose');
+const Models = require('./models.js');
 const bodyParser = require('body-parser');
 //importing express, morgan, fs and path
 const express = require('express'),
