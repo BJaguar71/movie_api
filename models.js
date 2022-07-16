@@ -18,3 +18,12 @@ let movieSchema = mongoose.Schema({
     Featured: Boolean
 });
 
+// defining schema for users collection
+let userSchema = mongoose.Schema({
+    Userame: {type: String, required: true},
+    Password: {type: String, required: true},
+    Email: {type: String, required: true},
+    Birthdate: Date,
+    FavoriteMovies: [{type: mongoose.Schema/mongoose.Types.ObjectId, ref: 'Movie'}]
+});
+
