@@ -50,16 +50,16 @@ app.get('/movies/:Title', (req, res) => {
 
 
 // Get info about a genre by the name of the genre
-app.get('/genre/:genreName', (req, res) => {
-    const { genreName } = req.params;
-    const genre = movies.find( movie => movie.Genre.Name === genreName).Genre;
-
-    if (genre) {
-        res.status(200).json(genre);
-    } else {
-        res.status(400).send('genre not found!');
-    }
-})
+app.get('/genre/:Name', (req, res) => {
+    Genres.findOne({Name: req.params.Name})
+    .then((genre) => {
+        res.json(genre.Description);
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+    });
+});
 
 // Gets info about a director by director's name
 app.get('/director/:directorName', (req, res) => {
