@@ -74,21 +74,33 @@ app.get('/director/:Name', (req, res) => {
 });
 
 
-// Add new user
+// Add new user (registering)
 app.post('/users', (req, res) => {
-    const newUser = req.body; 
+    Users.findOne({Username: req.body.Username})
+    .then((user) => {
+        if(user) {
+            return res.status(400).send(req.body.Username + ' already exist ');
+        } else {
+            Users
+            .create({
+                Username: req.body.Username,
+                Password: req.body.Password,
+                Email: req.body.Email,
+                Birthdate: req.body.Birthdate
+            })
+            .then((user) => {res.status(201).json(user)})
+            .catch((error) => {
+                console.error(error);
+                res.status(500).send('Error: ' + error);
+            })
+        }
+    })
+    .catch((error) => {
+        console.error(error);
+        res.status(500).send('Error: ' + error);
+    });
+});
 
-    if (newUser.name) {
-        newUser.id = uuid.v4();
-        users.push(newUser);
-        res.status(201).json(newUser)
-    } else { 
-        res.status(400).send('name is missing'); 
-    }
-})
-
-// Update user 
-app.patch('/users/:id', (req, res) => {
     const { id } = req.params;
     const updatedUser = req.body; 
 
