@@ -12,6 +12,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// integrating mongoose into the REST API
+const Movies = Models.Movie;
+const Users = Models.User;
 
 // logging with morgan (middleware)
 app.use(morgan('common'));
