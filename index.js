@@ -4,13 +4,10 @@ const Models = require('./models.js');
 // importing body-parser
 const bodyParser = require('body-parser');
 //importing express, morgan, fs and path
-const express = require('express'),
-    morgan = require('morgan');
+const express = require('express');
+const morgan = require('morgan');
 const uuid = require('uuid');
 const app = express();
-
-// logging with morgan (middleware)
-app.use(morgan('common'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
