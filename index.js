@@ -13,6 +13,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+// logging with morgan (middleware)
+app.use(morgan('common'));
 
 // GET request to main page
 app.get('/', (req, res) => {
