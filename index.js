@@ -113,18 +113,18 @@ app.get('/users', (req, res) => {
     });
 });
 
-    let user = users.find(user => user.id == id);
+// GET a user by username
+app.get('/users/:Username', (req, res) => {
+    Users.findOne({Username: req.params.Username})
+    .then((user) => {
+        res.json(user);
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+    });
+});
 
-    if (user) {
-        user.name = updatedUser.name;
-        res.status(200).json(user);
-    } else {
-        res.status(400).send('user not found!')
-    }
-})
-
-
-    let user = users.find(user => user.id == id);
 
 // Adds new movie to the user's favoriteMovies list
 app.post('/users/:Username/movies/:MovieID', (req, res) => {
