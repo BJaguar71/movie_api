@@ -62,16 +62,17 @@ app.get('/genre/:Name', (req, res) => {
 });
 
 // Gets info about a director by director's name
-app.get('/director/:directorName', (req, res) => {
-    const { directorName } = req.params;
-    const director = movies.find( movie => movie.Director.Name === directorName).Director;
+app.get('/director/:Name', (req, res) => {
+   Directors.findOne({Name: req.params.Name})
+    .then((director) => {
+        res.json(director);
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+    });
+});
 
-    if (director) {
-        res.status(200).json(director);
-    } else {
-        res.status(400).send('director not found!');
-    }
-})
 
 // Add new user
 app.post('/users', (req, res) => {
