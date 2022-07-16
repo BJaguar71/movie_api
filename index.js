@@ -177,7 +177,6 @@ app.delete('/users/:Username/movies/:MovieID', (req, res) => {
         }
     });
 });
-
 // Delete a user from the users's array
 app.delete('/users/:id', (req, res) => {
     const { id } = req.params;
