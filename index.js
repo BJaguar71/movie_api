@@ -178,17 +178,19 @@ app.delete('/users/:Username/movies/:MovieID', (req, res) => {
     });
 });
 // Delete a user from the users's array
-app.delete('/users/:id', (req, res) => {
-    const { id } = req.params;
-
-    let user = users.find(user => user.id == id);
-
-    if (user) {
-        users = users.filter(user => user.id != id);
-        res.status(200).send(`User ${id} has been removed.`);
-    } else {
-        res.status(400).send('user not found!')
-    }
+app.delete('/users/:Username', (req, res) => {
+    Users.findOneAndRemove({ Username: req.params.Username})
+    .then((user) => {
+        if(!user) {
+            res.status(400).sendStatus(req.params.Username + ' was not found');
+        } else {
+            res.status(200).send(req.params.Username + ' was removed.');
+        }
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+    });
 });
 
 //static serving the documentation file
