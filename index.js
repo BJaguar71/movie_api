@@ -1,6 +1,7 @@
 // importing mongoose an reated models
 const mongoose = require('mongoose');
 const Models = require('./models.js');
+// importing body-parser
 const bodyParser = require('body-parser');
 //importing express, morgan, fs and path
 const express = require('express'),
@@ -12,6 +13,7 @@ const app = express();
 app.use(morgan('common'));
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // defining the list of movies 
 let movies = [
