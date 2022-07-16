@@ -37,16 +37,17 @@ app.get('/movies', (req, res) => {
 });
 
 // Get info about one movie by title
-app.get('/movies/:title', (req, res) => {
-    const { title } = req.params;
-    const movie = movies.find( movie => movie.Title === title);
+app.get('/movies/:Title', (req, res) => {
+    Movies.findOne({ Title: req.params.Title})
+    .then((movie) => {
+        res.json(movie);
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(400).send('Error: ' + err);
+    });
+});
 
-    if (movie) {
-        res.status(200).json(movie);
-    } else {
-        res.status(400).send('Movie not found!');
-    }
-})
 
 // Get info about a genre by the name of the genre
 app.get('/genre/:genreName', (req, res) => {
