@@ -53,13 +53,12 @@ app.get('/movies/:Title', (req, res) => {
 
 // Get info about a genre by the name of the genre
 app.get('/genre/:Name', (req, res) => {
-    Genres.findOne({Name: req.params.Name})
-    .then((genre) => {
-        res.json(genre.Description);
-    })
-    .catch((err) => {
-        console.error(err);
-        res.status(500).send('Error: ' + err);
+    Movies.findOne({ 'Genre.Name': req.params.Name }).then((movie) => {
+        if (movie) {
+          res.status(200).json(movie.Genre);
+        } else {
+          res.status(400).send('Genre not found.');
+        };
     });
 });
 
