@@ -1,5 +1,7 @@
 // importing mongoose an reated models
 const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/t-flix', { useNewUrlParser: true, useUnifiedTopology: true })
+
 const Models = require('./models.js');
 // importing body-parser
 const bodyParser = require('body-parser');
