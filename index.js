@@ -133,7 +133,7 @@ app.patch('/users/:Username', (req, res) => {
         Username: req.body.Username,
         Password: req.body.Password,
         Email: req.body.Email,
-        Birthdate: req.body.Birthdate
+        Birthdate: req.body.Birth
         }
     },
     {new: true}, //makes sure the updated document is returned
