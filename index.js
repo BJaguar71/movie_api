@@ -164,8 +164,8 @@ app.post('/users/:UserID/movies/:MovieID', (req, res) => {
 });
 
 // Delete a movie from the user's favoriteMovies list
-app.delete('/users/:Username/movies/:MovieID', (req, res) => {
-    Users.findOneAndUpdate({ Username: req.params.Username }, {
+app.delete('/users/:UserID/movies/:MovieID', (req, res) => {
+    Users.findOneAndUpdate({ UserID: req.params.UserID }, {
         $pull: { FavoriteMovies: req.params.MovieID}
     },
     {new: true}, 
