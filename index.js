@@ -14,6 +14,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Importing auth.js file
+let auth = require('./auth')(app);
+
 // integrating mongoose into the REST API
 const Movies = Models.Movie;
 const Users = Models.User;
