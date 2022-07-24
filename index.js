@@ -17,6 +17,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Importing auth.js file
 let auth = require('./auth')(app);
 
+// Importing passport module and passport.js file
+const passport = require('passport');
+require('./passport');
+
 // integrating mongoose into the REST API
 const Movies = Models.Movie;
 const Users = Models.User;
