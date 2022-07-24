@@ -50,7 +50,6 @@ app.get('/movies/:Title', (req, res) => {
     });
 });
 
-
 // Get info about a genre by the name of the genre
 app.get('/genre/:Name', (req, res) => {
     Movies.findOne({ 'Genre.Name': req.params.Name }).then((movie) => {
@@ -73,7 +72,6 @@ app.get('/director/:Name', (req, res) => {
         res.status(500).send('Error: ' + err);
     });
 });
-
 
 // Add new user (registering)
 app.post('/users', (req, res) => {
@@ -178,6 +176,7 @@ app.delete('/users/:UserID/movies/:MovieID', (req, res) => {
         }
     });
 });
+
 // Delete a user from the users's array
 app.delete('/users/:Username', (req, res) => {
     Users.findOneAndRemove({ Username: req.params.Username})
