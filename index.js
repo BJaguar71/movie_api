@@ -153,7 +153,7 @@ app.patch('/users/:Username', passport.authenticate('jwt', { session: false}), (
 });
 
 // Adds new movie to the user's favoriteMovies list
-app.post('/users/:UserID/movies/:MovieID', (req, res) => {
+app.post('/users/:UserID/movies/:MovieID', passport.authenticate('jwt', { session: false}), (req, res) => {
     Users.findOneAndUpdate({ UserID: req.params.UserID }, {
         $push: { FavoriteMovies: req.params.MovieID}
     },
