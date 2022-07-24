@@ -46,7 +46,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false}), (req, res) =
 });
 
 // Get info about one movie by title
-app.get('/movies/:Title', (req, res) => {
+app.get('/movies/:Title', passport.authenticate('jwt', { session: false}), (req, res) => {
     Movies.findOne({ Title: req.params.Title})
     .then((movie) => {
         res.json(movie);
