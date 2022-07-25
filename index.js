@@ -138,7 +138,7 @@ app.patch('/users/:Username', passport.authenticate('jwt', { session: false}), (
         Username: req.body.Username,
         Password: req.body.Password,
         Email: req.body.Email,
-        Birthdate: req.body.Birth
+        Birthdate: req.body.Birthdate
         }
     },
     {new: true}, //makes sure the updated document is returned
