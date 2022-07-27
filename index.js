@@ -14,6 +14,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Importing CORS
+const cors = require('cors');
+app.use(cors());
+
 // Importing auth.js file
 let auth = require('./auth')(app);
 
