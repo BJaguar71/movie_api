@@ -1,6 +1,9 @@
 // importing mongoose
 const mongoose = require('mongoose');
 
+// importing bcrypt Node.js'module
+const bcrypt = require('bcrypt');
+
 // defining schema for movies collection
 let movieSchema = mongoose.Schema({
     Title: {type: String, required: true},
