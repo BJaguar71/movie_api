@@ -35,6 +35,11 @@ let userSchema = mongoose.Schema({
     return bcrypt.hashSync(password, 10); 
  };
 
+ // defined a function to compare the submitted hashed passwored with the hashed one stored in database
+userSchema.methods.validatePassword = function(password) {
+    return bcrypt.compareSync(password, this.Password);
+};
+
 // creating models
 let Movie = mongoose.model('Movie', movieSchema);
 let User = mongoose.model('User', userSchema);
