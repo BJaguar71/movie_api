@@ -18,6 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const cors = require('cors');
 app.use(cors());
 
+// importing express-validator
+const { check, validationResult } = require('express-validator');
+
 // Importing auth.js file
 let auth = require('./auth')(app);
 
