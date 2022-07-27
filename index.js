@@ -96,6 +96,12 @@ app.post('/users',
     check('Password', 'password is required').not().isEmpty(),
     check('Email', 'Email does not appear to be valid').isEmail()
    ], (req, res) => {
+    // check validation object for errors
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.aray()});
+    }
     Users.findOne({Username: req.body.Username})
     .then((user) => {
         if(user) {
