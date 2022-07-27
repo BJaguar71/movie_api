@@ -120,7 +120,7 @@ app.post('/users',
             .catch((error) => {
                 console.error(error);
                 res.status(500).send('Error: ' + error);
-            })
+            });
         }
     })
     .catch((error) => {
