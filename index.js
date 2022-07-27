@@ -88,7 +88,14 @@ app.get('/director/:Name', passport.authenticate('jwt', { session: false}), (req
 });
 
 // Add new user (registering)
-app.post('/users', (req, res) => {
+// input validation for username and password (min 5ch, alphanumeric, not empty, email formatt)
+app.post('/users',
+   [
+    check('Username', 'Username is required').isLength({min:5}),
+    check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+    check('Password', 'password is required').not().isEmpty(),
+    check('Email', 'Email does not appear to be valid').isEmail()
+   ], (req, res) => {
     Users.findOne({Username: req.body.Username})
     .then((user) => {
         if(user) {
