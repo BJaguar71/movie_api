@@ -104,7 +104,7 @@ app.post('/users',
     let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.aray()});
+        return res.status(422).json({ errors: errors.array()});
     }
     // hashes the password before storing it in db
     let hashedPassword = Users.hashPassword(req.body.Password);
