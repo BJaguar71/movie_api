@@ -45,7 +45,8 @@ app.get('/', (req, res) => {
 })
 
 // GET request to Movies page, returns list of all movies in JSON 
-app.get('/movies', passport.authenticate('jwt', { session: false}), (req, res) => {
+// removed auth midlware [passport.authenticate('jwt', { session: false })] - React can access to the API
+app.get('/movies', (req, res) => {
     Movies.find()
     .then((movies) => {
         res.status(201).json(movies);
