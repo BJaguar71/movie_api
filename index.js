@@ -227,6 +227,11 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false}), 
     });
 });
 
+// GET request to Documentation page
+app.get('/documentation', (req, res) => {
+  req.sedFile(path.join(__dirname + 'public/documentation.html'));
+});
+
 //static serving the documentation file
 app.use(express.static('public'));
 
