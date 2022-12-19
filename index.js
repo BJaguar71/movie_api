@@ -361,7 +361,7 @@ app.patch('/users/:Username', passport.authenticate('jwt', { session: false}), (
  *         description: The movie was added
  */
 app.post('/users/:UserID/movies/:MovieID', passport.authenticate('jwt', { session: false}), (req, res) => {
-    Users.findOneAndUpdate({ _Id: req.params.UserID }, {
+    Users.findOneAndUpdate({ _id: req.params.UserID }, {
         $push: { FavoriteMovies: req.params.MovieID}
     },
     {new: true}, 
@@ -396,7 +396,7 @@ app.post('/users/:UserID/movies/:MovieID', passport.authenticate('jwt', { sessio
  *         description: The movie was deleted
  */
 app.delete('/users/:UserID/movies/:MovieID', passport.authenticate('jwt', { session: false}), (req, res) => {
-    Users.findOneAndUpdate({ _Id: req.params.UserID }, {
+    Users.findOneAndUpdate({ _id: req.params.UserID }, {
         $pull: { FavoriteMovies: req.params.MovieID}
     },
     {new: true}, 
