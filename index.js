@@ -57,7 +57,7 @@ const swaggerOptions = {
           description: "Local server",
         },
         {
-          url: "https://t-flix.fly.dev/",
+          url: "https://movie-api.fly.dev/",
           description: "Production server",
         },
       ],
