@@ -26,7 +26,7 @@ const cors = require('cors');
 let allowedOrigins = [
   "http://localhost:8080",
   "http://localhost:1234",
-  "https://myflix-client-side-react.netlify.app/"
+  "https://myflix-client-side-react.netlify.app"
 ]
 app.use(cors({
   origin: (origin, callback) => {
